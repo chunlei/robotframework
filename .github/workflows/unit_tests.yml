@@ -1,6 +1,6 @@
 name: Unit tests
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test_using_builtin_python:
@@ -44,7 +44,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ '1.7', '1.8' ]
+        java: [ '1.8' ]
         os: [ 'ubuntu-latest', 'windows-latest', 'macos-latest' ]
         jython-version: [ '2.7.1' ]
         include:
@@ -62,7 +62,7 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           architecture: 'x64'
- 
+
       - name: Install wget
         run: |
           choco install wget -y --no-progress
